@@ -1,0 +1,13 @@
+// Home Page
+
+.home {
+    .pp-tableCell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    background-color: $color_white;
+    color: $color_black;
+}
+

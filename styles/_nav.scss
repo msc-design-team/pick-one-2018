@@ -1,0 +1,99 @@
+// Navigation
+
+.hamburger-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    //background-color: rgb(78, 78, 48);
+    padding: $bar-width;
+    width: $bar-width;
+    height: $bar-height + $bar-spacing*2;
+    cursor: pointer;
+    z-index: $z_nav;
+    transition: 300ms ease;
+    &:hover {
+        transform: rotate(180deg);
+    }
+}
+
+.bar,
+.bar:after,
+.bar:before {
+    width: $bar-width;
+    height: $bar-height;
+}
+
+.bar {
+    position: relative;
+    transform: translateY($bar-spacing);
+    background: $color_white;
+    transition: all 0ms 300ms;
+    &.animate {
+        background: transparent;
+    }
+}
+
+.bar:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: $bar-spacing;
+    background: $color_white;
+    transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bar:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: $bar-spacing;
+    background: $color_white;
+    transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bar.animate:after {
+    top: 0;
+    transform: rotate(45deg);
+    transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    ;
+}
+
+.bar.animate:before {
+    bottom: 0;
+    transform: rotate(-45deg);
+    transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    ;
+}
+
+/////// NAV MENU ////////
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: hsla(205, 37%, 15%, 0.99);
+    z-index: $z_nav-menu;
+
+    transition: 250ms ease;
+    opacity: 0;
+    // transform: translateY(-20em);
+    transform: scale(.8);
+    pointer-events: none;
+}
+
+.nav--active {
+    opacity: 1;
+    //transform: translateY(0);
+    transform: scale(1);
+    transform-origin: top left;
+    pointer-events: all;
+}
+
+
+
+.pagepilling--container {
+    overflow: hidden;
+}

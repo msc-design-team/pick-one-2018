@@ -1,0 +1,99 @@
+// Typography
+
+@font-face {
+    font-family: 'Franklin Gothic Normal';
+    src:url('/fonts/franklin-gothic-book.woff2') format('woff2'),
+        url('/fonts/franklin-gothic-book.woff') format('woff'),
+        url('/fonts/franklin-gothic-book.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Franklin Gothic Medium';
+    src:url('/fonts/franklin-gothic-medium.woff2') format('woff2'),
+        url('/fonts/franklin-gothic-medium.woff') format('woff'),
+        url('/fonts/franklin-gothic-medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Franklin Gothic Heavy';
+    src:url('/fonts/franklin-gothic-heavy.woff2') format('woff2'),
+        url('/fonts/franklin-gothic-heavy.woff') format('woff'),
+        url('/fonts/franklin-gothic-heavy.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Franklin Gothic Condensed';
+    src:url('/fonts/franklin-gothic-condensed.woff') format('woff'),
+        url('/fonts/franklin-gothic-condensed.ttf') format('truetype');
+}
+%font-normal {
+    font-family: 'Franklin Gothic Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+%font-medium {
+    font-family: 'Franklin Gothic Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+%font-heavy {
+    font-family: 'Franklin Gothic Heavy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+%font-condensed {
+    font-family: 'Franklin Gothic Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+::selection {
+    // text highlight options
+}
+
+html {
+    -webkit-font-smoothing: antialiased; // Fix fatty fonts
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: regular;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    @extend %font-normal;
+}
+
+h1,
+h2,
+h3,
+p,
+blockquote {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+h1 {
+    font-size: $size_large;
+    line-height: 1;
+    @extend %font-condensed;
+}
+
+h2 {
+    @extend %font-heavy;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+
+    @include for-phone-only {
+        font-size: $size_base_small;
+
+    }
+}
+
+h3 {
+    //padding-top: $nav-bar-width;
+    font-size: $size_large_med;
+    line-height: .9;
+    @include for-phone-only {
+        font-size: calc(#{$size_largest} * 1.2);
+        margin-top: 1em;
+        margin-bottom: 1.6em;
+    }
+}
+
+p {
+    @extend %font-medium;
+    @include for-phone-only {
+        font-size: $size_base;
+    }
+}
