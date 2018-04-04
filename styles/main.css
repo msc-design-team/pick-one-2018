@@ -791,6 +791,12 @@ html, body {
   position: absolute;
 }
 
+@media (max-width: 599px) {
+  .poster-img {
+    display: none;
+  }
+}
+
 @media (min-width: 600px) {
   .poster-img {
     display: none;
