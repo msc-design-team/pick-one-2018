@@ -1,19 +1,38 @@
 // Navigation
-
 .hamburger-menu {
     position: absolute;
     top: 0;
     left: 0;
     margin: auto;
-    //background-color: rgb(78, 78, 48);
     padding: $bar-width;
     width: $bar-width;
     height: $bar-height + $bar-spacing*2;
     cursor: pointer;
-    z-index: $z_nav;
+    z-index: $z_ceiling;
     transition: 300ms ease;
-    &:hover {
-        transform: rotate(180deg);
+    @include for-desktop-up {
+        &:hover {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.nav--open {
+    @include for-phone-only {
+        transform: rotate(0deg);
+        background-color: $color_black;
+        right: 0;
+        width: auto;
+        &::after {
+            content: 'Close';
+            position: absolute;
+            top: 0;
+            left: 4rem;
+            display: inline-block;
+            height: $nav-bar-width;
+            line-height: $nav-bar-width;
+            opacity: .5;
+        }
     }
 }
 
@@ -67,33 +86,276 @@
 }
 
 /////// NAV MENU ////////
-
-nav {
-    position: absolute;
+// .section-nav {
+//     background-color: hsla(205, 37%, 15%, 0.99);
+//     z-index: $z_high;
+//     transition: 400ms ease;
+//     transform: translateX(100vw);
+//     pointer-events: none;
+//     color: $color_white;
+// }
+.main-navigation {
+    position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
     right: 0;
     background-color: hsla(205, 37%, 15%, 0.99);
-    z-index: $z_nav-menu;
-
-    transition: 250ms ease;
-    opacity: 0;
-    // transform: translateY(-20em);
-    transform: scale(.8);
+    z-index: $z_high;
+    transition: 400ms ease;
+    transform: translateX(100vw);
     pointer-events: none;
+    color: $color_white;
+    @include for-desktop-up {
+        overflow: hidden;
+    }
+}
+
+.nav-contents-wrapper {
+    overflow-y: scroll;
+    @include for-phone-only {
+        // margin-top: calc(#{$nav-bar-width} + 1em);
+        margin-top: $nav-bar-width;
+        margin-bottom: $nav-bar-width;
+        margin-left: 1.2em;
+        margin-right: $margin-side;
+    }
+    &--list {
+        @include for-phone-only {
+            margin-left: $bar-width;
+            margin-right: $nav-bar-width;
+        }
+    }
+    @include for-desktop-up {
+        margin: $nav-bar-width;
+    }
+    .nav-list-wrapper {
+        @include for-desktop-up {
+            display: flex;
+        }
+    }
+}
+
+.section-list {
+    margin: 0;
+    padding: 0;
+}
+
+.section-list__item {
+    list-style: none;
+}
+
+.section-list__link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    h2 {
+        writing-mode: horizontal-tb;
+    }
+}
+
+// .section-list__link,
+// .section-icon {
+//     transition: 250ms ease;
+// }
+
+.hover--blue:hover {
+    color: $color_blue;
+    .section-icon {
+        fill: $color_blue;
+    }
+}
+.hover--red:hover {
+    color: $color_red;
+    .section-icon {
+        fill: $color_red;
+    }
+}
+.hover--green:hover {
+    color: $color_green;
+    .section-icon {
+        fill: $color_green;
+    }
+}
+.hover--orange:hover {
+    color: $color_orange;
+    .section-icon {
+        fill: $color_orange;
+    }
+}
+
+.section-icon {
+    width: 3.5em;
+    margin-right: 1em;
+    fill: $color_white;
 }
 
 .nav--active {
-    opacity: 1;
-    //transform: translateY(0);
-    transform: scale(1);
+    transform: translateX(0);
     transform-origin: top left;
     pointer-events: all;
 }
 
+.nav__contact-info {
+    .contact-info {
+        opacity: .5;
+    }
+    display: flex;
+    @include for-phone-only {
+        margin-top: 3em;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    @include for-desktop-up {
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        position: absolute;
+        left: $nav-bar-width;
+        bottom: $nav-bar-width;
+    }
+}
+
+.nav-list-wrapper__left {
+    margin-right: $nav-bar-width;
+}
+
+.pick-one-logo img {
+    max-width: 8em;
+    @include for-desktop-up {
+        margin-right: $nav-bar-width;
+        transform: rotate(-15deg);
+    }
+}
 
 
-.pagepilling--container {
-    overflow: hidden;
+.nav-section-callout-wrapper {
+    @include for-phone-only {
+        display: none;
+    }
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 35vw;
+    // background-color: salmon;
+}
+
+.section-callout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // transform: translateX(100%);
+    opacity: 0;
+    transition: 250ms ease;
+    &.reveal {
+        opacity: 1;
+        // transform: translateX(0%);
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include for-tablet-portrait-up {
+            opacity: .1;
+        }
+    }
+    &__text {
+        text-align: center;
+        font-size: $size_largest;
+        font-weight: 600;
+        max-width: 60%;
+    }
+
+    &--studentorgs {
+        background-color: $color_blue;
+        &::after {
+            background-image: url('../images/student-orgs.svg');
+        }
+    }
+    &--leadership {
+        background-color: $color_red;
+        &::after {
+            background-image: url('../images/leadership.svg');
+        }
+    }
+
+    &--service {
+        background-color: $color_green;
+        &::after {
+            background-image: url('../images/service.svg');
+        }
+    }
+
+    &--academic {
+        background-color: $color_orange;
+        &::after {
+            background-image: url('../images/academic.svg');
+        }
+    }
+
+    &--athletics {
+        background-color: $color_blue;
+        &::after {
+            background-image: url('../images/athletics.svg');
+        }
+    }
+
+    &--cultural {
+        background-color: $color_red;
+        &::after {
+            background-image: url('../images/cultural.svg');
+        }
+    }
+
+    &--fratAndSoro {
+        background-color: $color_green;
+        &::after {
+            background-image: url('../images/frat.svg');
+        }
+    }
+
+    &--lgbt {
+        background-color: $color_orange;
+        &::after {
+            background-image: url('../images/lgbtqia.svg');
+        }
+    }
+
+    &--military {
+        background-color: $color_blue;
+        &::after {
+            background-image: url('../images/military.svg');
+        }
+    }
+
+    &--employment {
+        background-color: $color_red;
+        &::after {
+            background-image: url('../images/employment.svg');
+        }
+    }
+
+    &--performing {
+        background-color: $color_green;
+        &::after {
+            background-image: url('../images/performing.svg');
+        }
+    }
+
+    &--spiritual {
+        background-color: $color_orange;
+        &::after {
+            background-image: url('../images/spiritual.svg');
+        }
+    }
 }
