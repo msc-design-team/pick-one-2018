@@ -5,20 +5,21 @@ $color_black: #192A36;
 $color_white: #FFFFFF;
 $color_off_white: #F3F4F5;
 
-$color_blue: #77C3D8;
-$color_blue-secondary: #D0EAF2;
+$amount: 20%;
 
-$color_red: #BF797E;
-$color_red-secondary: #BF797E;
-
-
+// $color_blue: #77C3D8;
+$color_blue: #8ECAEA;
+$color_blue-secondary: lighten($color_blue, $amount);
+$color_red: #d1686f;
+$color_red-secondary: lighten($color_red, $amount);
 $color_green: #A7C26D;
+$color_green-secondary: lighten($color_green, $amount);
 $color_orange: #F29C4B;
-
+$color_orange-secondary: lighten($color_orange, $amount);
 
 // Sizing
-$side_nav-height: 1em;
-$side_nav-width: .1em;
+$side_nav-height: 1.5rem;
+$side_nav-width: .17rem;
 
 $nav_width: 4rem;
 $nav_height: 4rem;
@@ -36,19 +37,20 @@ $size_small: 0.64rem;
 $size_small_med: 0.512rem;
 $size_smallest: 0.4rem;
 
-$bar-width: 1.5em;
-$bar-height: .2em;
-$bar-spacing: .58em;
+$bar-width: 1.5rem;
+$bar-height: .2rem;
+$bar-spacing: .58rem;
 
-$nav-bar-width: calc(#{$bar-width}*3);
+$nav-bar-width: 4.5rem;
+$margin-side: 2.25rem;
 
 
 // Z-indices
 $z_floor: 0;
-$z_filter: 50;
-$z_gallery: 100;
-$z_nav-menu: 150;
-$z_nav: 200;
+$z_low: 50;
+$z_middle: 100;
+$z_high: 150;
+$z_ceiling: 200;
 
 
 // Breakpoints

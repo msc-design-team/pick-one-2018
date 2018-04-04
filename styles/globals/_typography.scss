@@ -2,26 +2,26 @@
 
 @font-face {
     font-family: 'Franklin Gothic Normal';
-    src:url('/fonts/franklin-gothic-book.woff2') format('woff2'),
-        url('/fonts/franklin-gothic-book.woff') format('woff'),
-        url('/fonts/franklin-gothic-book.ttf') format('truetype');
+    src:url('../fonts/franklin-gothic-book.woff2') format('woff2'),
+        url('../fonts/franklin-gothic-book.woff') format('woff'),
+        url('../fonts/franklin-gothic-book.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Franklin Gothic Medium';
-    src:url('/fonts/franklin-gothic-medium.woff2') format('woff2'),
-        url('/fonts/franklin-gothic-medium.woff') format('woff'),
-        url('/fonts/franklin-gothic-medium.ttf') format('truetype');
+    src:url('../fonts/franklin-gothic-medium.woff2') format('woff2'),
+        url('../fonts/franklin-gothic-medium.woff') format('woff'),
+        url('../fonts/franklin-gothic-medium.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Franklin Gothic Heavy';
-    src:url('/fonts/franklin-gothic-heavy.woff2') format('woff2'),
-        url('/fonts/franklin-gothic-heavy.woff') format('woff'),
-        url('/fonts/franklin-gothic-heavy.ttf') format('truetype');
+    src:url('../fonts/franklin-gothic-heavy.woff2') format('woff2'),
+        url('../fonts/franklin-gothic-heavy.woff') format('woff'),
+        url('../fonts/franklin-gothic-heavy.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Franklin Gothic Condensed';
-    src:url('/fonts/franklin-gothic-condensed.woff') format('woff'),
-        url('/fonts/franklin-gothic-condensed.ttf') format('truetype');
+    src:url('../fonts/franklin-gothic-condensed.woff') format('woff'),
+        url('../fonts/franklin-gothic-condensed.ttf') format('truetype');
 }
 %font-normal {
     font-family: 'Franklin Gothic Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -37,7 +37,9 @@
 }
 
 ::selection {
-    // text highlight options
+    color: $color_off_white;
+    background: $color_black;
+    // background: linear-gradient(90deg, rgba(119,195,216,1) 0%, rgba(167,194,109,1) 35%, rgba(191,121,126,1) 68%, rgba(242,156,75,1) 100%);
 }
 
 html {
@@ -48,6 +50,7 @@ html {
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    color: $color_black;
     @extend %font-normal;
 }
 
@@ -73,21 +76,31 @@ h2 {
     @extend %font-heavy;
     text-transform: uppercase;
     letter-spacing: .1em;
+    font-size: $size_base;
 
-    @include for-phone-only {
-        font-size: $size_base_small;
-
+    @include for-tablet-portrait-up {
+        writing-mode: vertical-lr;
     }
 }
 
 h3 {
     //padding-top: $nav-bar-width;
     font-size: $size_large_med;
-    line-height: .9;
+    line-height: 1;
     @include for-phone-only {
         font-size: calc(#{$size_largest} * 1.2);
         margin-top: 1em;
         margin-bottom: 1.6em;
+    }
+    @include for-tablet-portrait-up {
+        // font-size: calc(#{$size_largest} * 2);
+        font-size: calc(#{$size_largest} * 1.2);
+        // font-size: $size_largest;
+        opacity: .9;
+        margin-bottom: .8em;
+    }
+    @include for-big-desktop-up {
+        font-size: calc(#{$size_largest} * 1.6);
     }
 }
 
@@ -96,4 +109,19 @@ p {
     @include for-phone-only {
         font-size: $size_base;
     }
+    @include for-tablet-portrait-up {
+        font-size: $size_base_large;
+        opacity: .7;
+    }
+    @include for-big-desktop-up {
+        font-size: $size_base;
+    }
+}
+
+.nav--open {
+    @extend %font-heavy;
+    color: $color_white;
+    text-transform: uppercase;
+    font-size: $size_base_large;
+    letter-spacing: .01em;
 }

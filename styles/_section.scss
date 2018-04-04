@@ -2,167 +2,392 @@
 
 .section {
     background-color: $color_white;
-    color: $color_black;
 
-    @include for-phone-only {
-        min-height: 100vh;
-        //position: relative;
-    }
-    
-    &::before {
-        content: '';
-        position: absolute;
-        width: $nav-bar-width;
-        top: 0;
-        left: 0;
-        z-index: $z_nav;
-
-        @include for-phone-only {
-            height: $nav-bar-width
-        }
-        @include for-desktop-up {
-            height: 100vh;
-        }
-    }
-
+    // Section Colors
     &--blue {
-        &::before {
-            background-color: $color_blue;
-        }
-        &::after {
-            background-color: $color_blue-secondary;
-        }
         .section__title {
-            color: $color_blue;
-            svg {
-                fill: $color_blue;
-            }
-            hr {
+            &::before {
                 background-color: $color_blue;
             }
+            @include for-phone-only {
+                color: $color_blue;
+                .section__title__icon {
+                    fill: $color_blue;
+                }
+                hr {
+                    background-color: $color_blue;
+                }
+            }
+            @include for-tablet-portrait-up {
+                background-color: $color_blue;
+                color: $color_white;
+                .section__title__icon {
+                    fill: $color_white;
+                }
+                hr {
+                    background-color: $color_white;
+                }
+            }
+        }
+        .section__info {
+            .info__background {
+                background-color: $color_blue-secondary;
+            }
         }
     }
-
     &--red {
-        &::before {
-            background-color: $color_red;
+        .section__title {
+            &::before {
+                background-color: $color_red;
+            }
+            @include for-phone-only {
+                color: $color_red;
+                svg {
+                    fill: $color_red;
+                }
+                hr {
+                    background-color: $color_red;
+                }
+            }
+            @include for-tablet-portrait-up {
+                background-color: $color_red;
+                color: $color_white;
+                svg {
+                    fill: $color_white;
+                }
+                hr {
+                    background-color: $color_white;
+                }
+            }
+        }
+        .section__info {
+            .info__background {
+                background-color: $color_red-secondary;
+            }
+        }
+    }
+    &--green {
+        .section__title {
+            &::before {
+                background-color: $color_green;
+            }
+            @include for-phone-only {
+                color: $color_green;
+                svg {
+                    fill: $color_green;
+                }
+                hr {
+                    background-color: $color_green;
+                }
+            }
+            @include for-tablet-portrait-up {
+                background-color: $color_green;
+                color: $color_white;
+                svg {
+                    fill: $color_white;
+                }
+                hr {
+                    background-color: $color_white;
+                }
+            }
+        }
+        .section__info {
+            .info__background {
+                background-color: $color_green-secondary;
+            }
+        }
+    }
+    &--orange {
+        .section__title {
+            &::before {
+                background-color: $color_orange;
+            }
+            @include for-phone-only {
+                color: $color_orange;
+                svg {
+                    fill: $color_orange;
+                }
+                hr {
+                    background-color: $color_orange;
+                }
+            }
+            @include for-tablet-portrait-up {
+                background-color: $color_orange;
+                color: $color_white;
+                svg {
+                    fill: $color_white;
+                }
+                hr {
+                    background-color: $color_white;
+                }
+            }
+        }
+        .section__info {
+            .info__background {
+                background-color: $color_orange-secondary;
+            }
         }
     }
 
-    &__left {
-        margin-top: $nav-bar-width;
+    &__title {
+        &::before {
+            @include for-phone-only {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                width: $nav-bar-width;
+                height: 100%;
+                z-index: $z_middle;
+                height: $nav-bar-width;
+                left: - $nav-bar-width;
+            }
+        }
+        position: absolute;
+        top: 0;
+        bottom: $nav-bar-width;
+        // height: 100%;
+        z-index: $z_high;
         display: flex;
-    }
-
-    &__content {
-        width: calc(100vw - #{$nav-bar-width});
+        justify-content: center;
+        align-items: center;
         @include for-phone-only {
-            transform: translateX(-2.25em);
+            right: 0;
+            left: $nav-bar-width;
+            z-index: $z_middle;
+            height: $nav-bar-width;
+            background-color: #FFFFFF;
         }
-    }
-    &__nav-bar{
-        height: calc(100vh - #{$nav-bar-width});
-        width: $nav-bar-width;
-        background-color: $color_blue-secondary;
-        &::before {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 100%;
-            background-image: url('/images/student-orgs.svg');
-            background-size: cover;
-            background-position: center;
-            opacity: .5;
+        @include for-tablet-portrait-up {
+            flex-direction: column;
+            width: $nav-bar-width;
         }
-    }
-    &__content--overflow {
-        position: absolute;
-        left: 0;
-        right: 0;
+        svg {
+            height: 3em;
+            @include for-phone-only {
+                
+            }
+        }
+        hr {
+            margin: 0;
+            border: none;
+            position: relative;
+            &::after {
+                content: '';
+                display: block;
+                opacity: .5;
+                background-color: inherit;
+                position: absolute;
+                @include for-phone-only {
+                    right: -1.5em;
+                    width: 1.5em;
+                    height: .18em;
+                }
+                @include for-tablet-portrait-up {
+                    width: .15em;
+                    height: 2em;
+                    top: 2em;
+                }
+            }
+            @include for-phone-only {
+                width: 1.5em;
+                height: .18em;
+                margin-right: 1.8em;
+            }
+            @include for-tablet-portrait-up {
+                width: .15em;
+                height: 2em;
+                margin-bottom: 2.6em;
+            }
+        }
     }
 
-    &__nav {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        .nav__arrow {
-            height: $nav-bar-width;
-            width: $nav-bar-width;
-            background-color: $color_black;
+    &__info {
+        @include for-phone-only {
+            padding-top: $nav-bar-width;
+            margin-bottom: 10em;
+        }
+        .info__background {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            @include for-phone-only {
+                width: $nav-bar-width;
+            }
+            @include for-tablet-portrait-up {
+                width: 70vw;
+                left: $nav-bar-width;
+            }
+            @include for-desktop-up {
+                width: 45vw;
+            }
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                @include for-phone-only {
+                    opacity: .5;
+                }
+                @include for-tablet-portrait-up {
+                    opacity: .3;
+                }
+            }
+        }
+        .info__content {
+            z-index: $z_low;
+            @include for-phone-only {
+                margin-left: $nav-bar-width;
+                transform: translateX(-2.25em);
+            }
+            @include for-tablet-portrait-up {
+                position: absolute;
+                z-index: $z_middle;
+                height: 100vh;
+                width: 70vw;
+                left: calc(#{$nav-bar-width} * 2);
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            @include for-desktop-up {
+                width: 50vw;
+            }
+        }
+        p {
+            margin-bottom: 2em;
+        }
+    }
+}
+
+.list {
+    padding: 0;
+    // margin: 0 0 4.5em;
+    margin: 0;
+    list-style: none;
+    a {
+        text-decoration: none;
+    }
+    &__item {
+        position: relative;
+        margin: 0 0 1.6em;
+    }
+    &__title {
+        display: inline;
+        margin: 0 0 .375em;
+        border-bottom: 2px solid currentColor;
+        padding-bottom: .1em;
+        svg {
+            margin-left: .5em;
+        }
+    }
+    .icon {
+        display: inline-block;
+        vertical-align: middle;
+        fill: $color_black;
+        height: .64em;
+        transition: 250ms ease;
+        &--hover {
+            transform: translateX(.2em) translateY(-.2em);
+        }
+    }
+}
+
+.section__navigation {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: $z_ceiling;
+    display: flex;
+    transition: 250ms ease-in-out;
+    background-color: $color_black;
+    
+    @include for-phone-only {
+        display: none;
+    }
+
+    .section__navigation__previous,
+    .section__navigation__next {
+        width: $nav-bar-width;
+        height: $nav-bar-width;
+        background-color: $color_black;
+
+        a {
             display: flex;
             justify-content: center;
             align-items: center;
-            a {
-                color: $color_white;
-                text-decoration: none;
-                font-size: $size_large;
-            }
-        }
-        .arrow {
-            margin-top: .5em;
-            height: 1em;
-
-            &--previous {
-                transform: rotate(180deg);
-            }
+            width: 100%;
+            height: 100%;
         }
 
+        .section_navigation__hand {
+            width: 2.5em;
+            fill: #FFFFFF;
+        }
     }
 }
 
-.section__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include for-phone-only {
-        
-        //position: absolute;
-        position: fixed;
-
-        left: $nav-bar-width;
-        height: $nav-bar-width;
-        right: 0;
-        top: 0;
-        z-index: $z_nav-menu;
+.list-wrapper {
+    @include for-desktop-up {
+        display: flex;
+    }
+    .list-wrapper__row {
+        @include for-desktop-up {
+            margin-right: $nav-bar-width;
+        }
     }
 }
 
-.section--icon {
-    @include for-phone-only {
-        height: 3em;
-    }
+.student-orgs .section__info .info__background::after { 
+    background-image: url('../images/student-orgs.svg');
 }
 
-.section__title__bar {
-    position: relative;
-    border: none;
-    height: .15em;
-    width: 1em;
-    margin: 0 2em 0 .5em;
-    &::after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        opacity: .5;
-        position: absolute;
-        right: -100%;
-        top: 0;
-        bottom: 0;
-        background-color: inherit;
-    }
+.leadership .section__info .info__background::after { 
+    background-image: url('../images/leadership.svg');
+    opacity: .1;
 }
 
-.org__link {
-    padding-top: 2em;
-    margin-top: .6em;
+.service .section__info .info__background::after { 
+    background-image: url('../images/service.svg');
+    opacity: .2;
 }
-
-
-
-.overflow-scroll-test-section {
-    width: 100%;
-    background-color: rosybrown;
-    overflow: scroll;
+.academic .section__info .info__background::after { 
+    background-image: url('../images/academic.svg');
+    opacity: .2;
+}
+.athletics .section__info .info__background::after { 
+    background-image: url('../images/athletics.svg');
+    opacity: .3;
+}
+.cultural .section__info .info__background::after { 
+    background-image: url('../images/cultural.svg');
+    opacity: .1;
+}
+.frat .section__info .info__background::after { 
+    background-image: url('../images/frat.svg');
+    opacity: .2;
+}
+.lgbt .section__info .info__background::after { 
+    background-image: url('../images/lgbtqia.svg');
+    opacity: .2;
+}
+.military .section__info .info__background::after { 
+    background-image: url('../images/military.svg');
+    opacity: .3;
+}
+.employment .section__info .info__background::after { 
+    background-image: url('../images/employment.svg');
+    opacity: .1;
+}
+.performing .section__info .info__background::after { 
+    background-image: url('../images/performing.svg');
+    opacity: .2;
+}
+.spiritual .section__info .info__background::after { 
+    background-image: url('../images/spiritual.svg');
+    opacity: .2;
 }

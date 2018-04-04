@@ -1,13 +1,128 @@
 // Home Page
 
 .home {
-    .pp-tableCell {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    @include for-phone-only {
+        display: block;
+    }
+}
+
+.hero-wrapper--right,
+.hero-wrapper--left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @include for-phone-only {
+        position: relative;
+    }
+}
+
+.hero-wrapper--left {
+    width: 45vw;
+    left: 0;
+    @include for-phone-only {
+        width: auto;
+        height: 20em;
+    }
+    background-color: $color_blue;
+    animation: bg-color-cycle 10s ease infinite;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: $z_low;
+        background-image: url('../images/hand.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: .2;
+    }
+}
+
+.hero-img-wrapper {
+    position: absolute;
+    transform-style: preserve-3d;
+    top: $nav-bar-width;
+    bottom: $nav-bar-width;
+    right: -$nav-bar-width;
+    z-index: $z_middle;
+
+    @include for-phone-only {
+        height: 22em;
+        top: 2em;
+        right: 2em;
+        bottom: auto;
     }
 
-    background-color: $color_white;
-    color: $color_black;
+    .hero-img {
+        height: 100%;
+    }
+    .pick-one-hero {
+        position: absolute;
+        outline: 1px solid transparent;
+        max-width: 20em;
+        transform: rotate(-15deg) translateZ(8em);
+        right: 20em;
+        top: 5em;
+        @include for-phone-only {
+            right: 80%;
+            top: 2em;
+            height: 15em;
+        }
+    }
+}
+
+.hero-wrapper--right {
+    width: 50vw;
+    right: 0;
+    @include for-phone-only {
+        width: auto;
+    }
+    .wrapper {
+        height: 100%;
+        margin-right: $nav-bar-width;
+        margin-left: $nav-bar-width;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include for-phone-only {
+            margin: 2.25em;
+        }
+    }
+    h3 {
+        transform: translateX(-2.25em);
+        z-index: $z_high;
+        width: calc(100% + 2.25em);
+        pointer-events: none;
+        @include for-phone-only {
+            transform: translateY(-1em);
+            z-index: $z_high;
+            width: auto;
+            margin-bottom: 0;
+        }
+        @include for-tablet-portrait-up {
+            font-size: calc(#{$size_largest} * 1.5);
+            transform: translateX(-4em);
+        }
+    }
+    p {
+        max-width: 20em;
+        margin-bottom: 3em;
+    }
+    .hero-cta {
+        display: block;
+        padding: 1.2em;
+        background-color: $color_black;
+        color: $color_white;
+        text-decoration: none;
+        align-self: flex-start;
+        font-size: $size_base_large;
+        @extend %font-heavy;
+        &:hover {
+            animation: bg-color-cycle 900ms ease infinite;
+        }
+    }
 }
 

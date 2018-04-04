@@ -33,11 +33,17 @@
   -webkit-touch-callout: none; // Disable Android and iOS callouts
 }
 
-  /* Dynamic responsive size change */
-  :root {
-    font-size: calc(0.1em + 1vw);
-
-    @include for-phone-only {
-      font-size: calc(.55em + 1vw);
-    }
+/* Dynamic responsive size change */
+:root {
+  @include for-phone-only {
+    font-size: calc(.55em + 1vw);
   }
+
+  @mixin for-tablet-portrait-up {
+    font-size: calc(2em + 1vw);
+  }
+
+  @include for-desktop-up {
+    font-size: calc(0.1em + 1vw);
+  }
+}
