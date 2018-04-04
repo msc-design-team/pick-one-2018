@@ -46,8 +46,9 @@
     transform-style: preserve-3d;
     top: $nav-bar-width;
     bottom: $nav-bar-width;
-    right: -$nav-bar-width;
+    right: -1.15em;
     z-index: $z_middle;
+    height: 30em;
 
     @include for-phone-only {
         height: 22em;
@@ -56,29 +57,44 @@
         bottom: auto;
     }
 
+    @include for-desktop-up {
+        height: auto;
+        right: -$nav-bar-width;
+    }
+
     .hero-img {
         height: 100%;
     }
     .pick-one-hero {
         position: absolute;
         outline: 1px solid transparent;
-        max-width: 20em;
         transform: rotate(-15deg) translateZ(8em);
-        right: 20em;
-        top: 5em;
+        height: 20em;
+        top: 100%;
+        left: 1em;
         @include for-phone-only {
             right: 80%;
             top: 2em;
             height: 15em;
         }
+        @include for-desktop-up {
+            right: 20em;
+            top: 5em;
+            max-width: 20em;
+            height: auto;
+            left: auto;
+        }
     }
 }
 
 .hero-wrapper--right {
-    width: 50vw;
+    width: 60vw;
     right: 0;
     @include for-phone-only {
         width: auto;
+    }
+    @include for-desktop-up {
+        width: 50vw;
     }
     .wrapper {
         height: 100%;
@@ -92,19 +108,18 @@
         }
     }
     h3 {
-        transform: translateX(-2.25em);
+        // transform: translateX(-2.25em);
         z-index: $z_high;
-        width: calc(100% + 2.25em);
         pointer-events: none;
+        font-size: calc(#{$size_largest} * 1.5);
         @include for-phone-only {
             transform: translateY(-1em);
             z-index: $z_high;
-            width: auto;
             margin-bottom: 0;
         }
-        @include for-tablet-portrait-up {
-            font-size: calc(#{$size_largest} * 1.5);
+        @include for-desktop-up {
             transform: translateX(-4em);
+            width: calc(100% + 2.25em);
         }
     }
     p {

@@ -112,6 +112,7 @@
 
 .nav-contents-wrapper {
     overflow-y: scroll;
+    margin: $nav-bar-width;    
     @include for-phone-only {
         // margin-top: calc(#{$nav-bar-width} + 1em);
         margin-top: $nav-bar-width;
@@ -196,21 +197,26 @@
 }
 
 .nav__contact-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     .contact-info {
         opacity: .5;
     }
-    display: flex;
     @include for-phone-only {
         margin-top: 3em;
         align-items: flex-end;
         justify-content: space-between;
     }
+    margin-top: $nav-bar-width;
     @include for-desktop-up {
         flex-direction: row-reverse;
         align-items: flex-end;
         position: absolute;
         left: $nav-bar-width;
         bottom: $nav-bar-width;
+        width: auto;
+        justify-content: auto;
     }
 }
 

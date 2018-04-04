@@ -1069,6 +1069,7 @@ button:focus {
 
 .nav-contents-wrapper {
   overflow-y: scroll;
+  margin: 4.5rem;
 }
 
 @media (max-width: 599px) {
@@ -1164,6 +1165,9 @@ button:focus {
 
 .nav__contact-info {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 4.5rem;
 }
 
 .nav__contact-info .contact-info {
@@ -1185,6 +1189,8 @@ button:focus {
     position: absolute;
     left: 4.5rem;
     bottom: 4.5rem;
+    width: auto;
+    justify-content: auto;
   }
 }
 
@@ -1409,8 +1415,9 @@ button:focus {
   transform-style: preserve-3d;
   top: 4.5rem;
   bottom: 4.5rem;
-  right: -4.5rem;
+  right: -1.15em;
   z-index: 100;
+  height: 30em;
 }
 
 @media (max-width: 599px) {
@@ -1422,6 +1429,13 @@ button:focus {
   }
 }
 
+@media (min-width: 1200px) {
+  .hero-img-wrapper {
+    height: auto;
+    right: -4.5rem;
+  }
+}
+
 .hero-img-wrapper .hero-img {
   height: 100%;
 }
@@ -1429,10 +1443,10 @@ button:focus {
 .hero-img-wrapper .pick-one-hero {
   position: absolute;
   outline: 1px solid transparent;
-  max-width: 20em;
   transform: rotate(-15deg) translateZ(8em);
-  right: 20em;
-  top: 5em;
+  height: 20em;
+  top: 100%;
+  left: 1em;
 }
 
 @media (max-width: 599px) {
@@ -1443,14 +1457,30 @@ button:focus {
   }
 }
 
+@media (min-width: 1200px) {
+  .hero-img-wrapper .pick-one-hero {
+    right: 20em;
+    top: 5em;
+    max-width: 20em;
+    height: auto;
+    left: auto;
+  }
+}
+
 .hero-wrapper--right {
-  width: 50vw;
+  width: 60vw;
   right: 0;
 }
 
 @media (max-width: 599px) {
   .hero-wrapper--right {
     width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-wrapper--right {
+    width: 50vw;
   }
 }
 
@@ -1470,25 +1500,23 @@ button:focus {
 }
 
 .hero-wrapper--right h3 {
-  transform: translateX(-2.25em);
   z-index: 150;
-  width: calc(100% + 2.25em);
   pointer-events: none;
+  font-size: calc(2.441rem * 1.5);
 }
 
 @media (max-width: 599px) {
   .hero-wrapper--right h3 {
     transform: translateY(-1em);
     z-index: 150;
-    width: auto;
     margin-bottom: 0;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .hero-wrapper--right h3 {
-    font-size: calc(2.441rem * 1.5);
     transform: translateX(-4em);
+    width: calc(100% + 2.25em);
   }
 }
 
