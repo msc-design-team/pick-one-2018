@@ -301,7 +301,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: $z_ceiling;
+    z-index: $z_high;
     display: flex;
     transition: 250ms ease-in-out;
     background-color: $color_black;

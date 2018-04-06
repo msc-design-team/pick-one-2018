@@ -473,7 +473,7 @@ p {
   font-family: 'Franklin Gothic Medium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-h2, .nav--open, .pp-tooltip, .bottom-bar-callout, .hero-wrapper--right .hero-cta {
+h2, .nav--open, .pp-tooltip, .loader__text, .bottom-bar-callout, .hero-wrapper--right .hero-cta {
   font-family: 'Franklin Gothic Heavy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -721,6 +721,42 @@ html, body {
   height: 100%;
 }
 
+.loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #8ECAEA;
+  animation: bg-color-cycle 3s ease infinite;
+  z-index: 200;
+  pointer-events: all;
+  transition: 300ms ease;
+}
+
+.loader__image {
+  max-width: 10em;
+  outline: 1px solid transparent;
+  animation: grow 900ms ease infinite;
+}
+
+.loader__text {
+  font-size: 1.563rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #FFFFFF;
+  margin-top: 1.5em;
+}
+
+.loader.done-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .pick-one-callout {
   position: fixed;
   z-index: 100;
@@ -913,6 +949,15 @@ button:focus {
   outline: 0;
 }
 
+@keyframes grow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
 @keyframes bg-color-cycle {
   0%, 100% {
     background-color: #8ECAEA;
@@ -971,7 +1016,7 @@ button:focus {
   width: 1.5rem;
   height: 1.36rem;
   cursor: pointer;
-  z-index: 200;
+  z-index: 150;
   transition: 300ms ease;
 }
 
@@ -1384,8 +1429,16 @@ button:focus {
 .hero-wrapper--left {
   width: 45vw;
   left: 0;
+  transition: 600ms ease;
+  transform: translateX(-2em);
+  opacity: 0;
   background-color: #8ECAEA;
   animation: bg-color-cycle 10s ease infinite;
+}
+
+.hero-wrapper--left.slide--in {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 @media (max-width: 599px) {
@@ -1415,7 +1468,7 @@ button:focus {
   transform-style: preserve-3d;
   top: 4.5rem;
   bottom: 4.5rem;
-  right: -1.15em;
+  right: 4.5rem;
   z-index: 100;
   height: 30em;
 }
@@ -1426,6 +1479,7 @@ button:focus {
     top: 2em;
     right: 2em;
     bottom: auto;
+    pointer-events: none;
   }
 }
 
@@ -1452,8 +1506,9 @@ button:focus {
 @media (max-width: 599px) {
   .hero-img-wrapper .pick-one-hero {
     right: 80%;
-    top: 2em;
-    height: 15em;
+    top: 3em;
+    height: 13em;
+    left: -8em;
   }
 }
 
@@ -1470,6 +1525,14 @@ button:focus {
 .hero-wrapper--right {
   width: 60vw;
   right: 0;
+  transition: 600ms cubic-bezier(0.63, 0, 0.25, 1.43);
+  transform: translateX(2em);
+  opacity: 0;
+}
+
+.hero-wrapper--right.slide--in {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 @media (max-width: 599px) {
@@ -1495,7 +1558,9 @@ button:focus {
 
 @media (max-width: 599px) {
   .hero-wrapper--right .wrapper {
-    margin: 2.25em;
+    margin-right: 2.25em;
+    margin-left: 2.25em;
+    padding-bottom: 5em;
   }
 }
 
@@ -1510,6 +1575,7 @@ button:focus {
     transform: translateY(-1em);
     z-index: 150;
     margin-bottom: 0;
+    margin-top: 1.5em;
   }
 }
 
@@ -1896,7 +1962,7 @@ button:focus {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 200;
+  z-index: 150;
   display: flex;
   transition: 250ms ease-in-out;
   background-color: #192A36;

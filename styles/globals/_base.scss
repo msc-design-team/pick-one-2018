@@ -1,5 +1,42 @@
 // Base
 
+.loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $color_blue;
+    animation: bg-color-cycle 3s ease infinite;
+    z-index: $z_ceiling;
+    pointer-events: all;
+    transition: 300ms ease;
+
+    &__image {
+        max-width: 10em;        
+        outline: 1px solid transparent;
+        animation: grow 900ms ease infinite;
+    }
+
+    &__text {
+        font-size: $size_large;
+        text-transform: uppercase;
+        @extend %font-heavy;
+        letter-spacing: .1em;
+        color: $color_white;
+        margin-top: 1.5em;
+    }
+
+    &.done-loading {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
 .pick-one-callout {
     position: fixed;
     z-index: $z_middle;

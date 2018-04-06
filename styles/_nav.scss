@@ -8,7 +8,7 @@
     width: $bar-width;
     height: $bar-height + $bar-spacing*2;
     cursor: pointer;
-    z-index: $z_ceiling;
+    z-index: $z_high;
     transition: 300ms ease;
     @include for-desktop-up {
         &:hover {

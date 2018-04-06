@@ -19,6 +19,16 @@
 .hero-wrapper--left {
     width: 45vw;
     left: 0;
+
+    transition: 600ms ease;
+    transform: translateX(-2em);
+    opacity: 0;
+
+    &.slide--in {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
     @include for-phone-only {
         width: auto;
         height: 20em;
@@ -46,7 +56,7 @@
     transform-style: preserve-3d;
     top: $nav-bar-width;
     bottom: $nav-bar-width;
-    right: -1.15em;
+    right: $nav-bar-width;
     z-index: $z_middle;
     height: 30em;
 
@@ -55,6 +65,7 @@
         top: 2em;
         right: 2em;
         bottom: auto;
+        pointer-events: none;
     }
 
     @include for-desktop-up {
@@ -74,8 +85,9 @@
         left: 1em;
         @include for-phone-only {
             right: 80%;
-            top: 2em;
-            height: 15em;
+            top: 3em;
+            height: 13em;
+            left: -8em;
         }
         @include for-desktop-up {
             right: 20em;
@@ -90,6 +102,16 @@
 .hero-wrapper--right {
     width: 60vw;
     right: 0;
+
+    transition: 600ms cubic-bezier(0.63, 0, 0.25, 1.43);
+    transform: translateX(2em);
+    opacity: 0;
+
+    &.slide--in {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
     @include for-phone-only {
         width: auto;
     }
@@ -104,7 +126,9 @@
         flex-direction: column;
         justify-content: center;
         @include for-phone-only {
-            margin: 2.25em;
+            margin-right: 2.25em;
+            margin-left: 2.25em;
+            padding-bottom: 5em;
         }
     }
     h3 {
@@ -116,6 +140,7 @@
             transform: translateY(-1em);
             z-index: $z_high;
             margin-bottom: 0;
+            margin-top: 1.5em;
         }
         @include for-desktop-up {
             transform: translateX(-4em);

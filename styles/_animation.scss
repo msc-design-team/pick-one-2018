@@ -1,5 +1,14 @@
 // Page Animations
 
+@keyframes grow {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
 @keyframes bg-color-cycle {
     0%, 100% {
         background-color: $color_blue;
