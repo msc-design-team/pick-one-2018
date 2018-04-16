@@ -160,8 +160,10 @@
         align-self: flex-start;
         font-size: $size_base_large;
         @extend %font-heavy;
+        transition: 300ms ease;
         &:hover {
             animation: bg-color-cycle 900ms ease infinite;
+            padding: 1em 2em;
         }
     }
 }

@@ -102,7 +102,7 @@
     background-color: hsla(205, 37%, 15%, 0.99);
     z-index: $z_high;
     transition: 400ms ease;
-    transform: translateX(100vw);
+    transform: translateX(-100vw);
     pointer-events: none;
     color: $color_white;
     @include for-desktop-up {
@@ -231,7 +231,6 @@
         transform: rotate(-15deg);
     }
 }
-
 
 .nav-section-callout-wrapper {
     @include for-phone-only {

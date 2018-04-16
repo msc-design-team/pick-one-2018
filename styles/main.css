@@ -1101,7 +1101,7 @@ button:focus {
   background-color: rgba(24, 41, 52, 0.99);
   z-index: 150;
   transition: 400ms ease;
-  transform: translateX(100vw);
+  transform: translateX(-100vw);
   pointer-events: none;
   color: #FFFFFF;
 }
@@ -1599,10 +1599,12 @@ button:focus {
   text-decoration: none;
   align-self: flex-start;
   font-size: 1.25rem;
+  transition: 300ms ease;
 }
 
 .hero-wrapper--right .hero-cta:hover {
   animation: bg-color-cycle 900ms ease infinite;
+  padding: 1em 2em;
 }
 
 .section {
