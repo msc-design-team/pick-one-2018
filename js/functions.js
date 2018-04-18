@@ -1,18 +1,26 @@
 $(document).ready(function () {
 
     // LOADING SCREEN
-    var loaderTime = 3000;
+    // var loaderTime = 3000;
 
-    setTimeout(function() {
-        $('#loader').addClass('done-loading');
-    }, loaderTime);
+    // setTimeout(function() {
+    //     $('#loader').addClass('done-loading');
+    // }, loaderTime);
+
+    // setTimeout(function() {
+    //     $('.hero-wrapper--left').addClass('slide--in');
+    // }, loaderTime + 300);
+    // setTimeout(function() {
+    //     $('.hero-wrapper--right').addClass('slide--in');
+    // }, loaderTime + 400);
+
 
     setTimeout(function() {
         $('.hero-wrapper--left').addClass('slide--in');
-    }, loaderTime + 300);
+    }, 200);
     setTimeout(function() {
         $('.hero-wrapper--right').addClass('slide--in');
-    }, loaderTime + 400);
+    }, 300);
       
 
     $('#pagepiling').pagepiling({

@@ -331,11 +331,11 @@
     }
 }
 
-.list-wrapper {
+.info__list__container {
     @include for-desktop-up {
         display: flex;
     }
-    .list-wrapper__row {
+    .list {
         @include for-desktop-up {
             margin-right: $nav-bar-width;
         }

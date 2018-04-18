@@ -1999,13 +1999,13 @@ button:focus {
 }
 
 @media (min-width: 1200px) {
-  .list-wrapper {
+  .info__list__container {
     display: flex;
   }
 }
 
 @media (min-width: 1200px) {
-  .list-wrapper .list-wrapper__row {
+  .info__list__container .list {
     margin-right: 4.5rem;
   }
 }
