@@ -26,12 +26,12 @@ $(document).ready(function () {
     $('#pagepiling').pagepiling({
         direction: 'horizontal',
         menu: '#menu',
-        anchors: ['home', 'studentOrgs', 'leadership', 'service', 'academic', 'athletics', 'cultural', 'fratAndSoro', 'lgbt', 'military', 'employment', 'performing', 'spiritual'],
+        anchors: ['home', 'studentOrgs', 'leadership', 'service', 'academic', 'athletics', 'cultural', 'fratAndSoro', 'lgbt', 'military', 'employment', 'performing', 'spiritual', 'help'],
         scrollingSpeed: 300,
         loopBottom: true,
         navigation: {
             'position': 'right',
-            'tooltips': ['Pick One!', 'Student Organizations', 'Leadership', 'Service & Volunteerism', 'Academic & Professional', 'Athletics & Recreation', 'Cultural & Identity', 'Fraternity & Sorofity Life', 'LGBTQIA+ Programs', 'Military & Veterans', 'On-Campus Employment', 'Performing Arts', 'Spiritual']
+            'tooltips': ['Pick One!', 'Student Organizations', 'Leadership', 'Service & Volunteerism', 'Academic & Professional', 'Athletics & Recreation', 'Cultural & Identity', 'Fraternity & Sorofity Life', 'LGBTQIA+ Programs', 'Military & Veterans', 'On-Campus Employment', 'Performing Arts', 'Spiritual', 'Help!']
         },
         onLeave: function (index, nextIndex, direction) {
         },

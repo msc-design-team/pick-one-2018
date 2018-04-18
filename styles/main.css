@@ -2068,3 +2068,7 @@ button:focus {
   background-image: url("../images/spiritual.svg");
   opacity: .2;
 }
+
+.help .section__info .info__background::after {
+  background-image: url("../images/help.svg");
+}
