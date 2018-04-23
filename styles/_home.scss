@@ -68,6 +68,11 @@
         pointer-events: none;
     }
 
+    @include for-tablet-portrait-only {
+        top: 15%;
+        right: -1em;
+    }
+
     @include for-desktop-up {
         height: auto;
         right: -$nav-bar-width;
@@ -75,19 +80,25 @@
 
     .hero-img {
         height: 100%;
+        @include for-desktop-up {
+            height: 80vh;
+        }
     }
     .pick-one-hero {
         position: absolute;
         outline: 1px solid transparent;
         transform: rotate(-15deg) translateZ(8em);
         height: 20em;
-        top: 100%;
+        top: 70%;
         left: 1em;
         @include for-phone-only {
             right: 80%;
             top: 3em;
             height: 13em;
             left: -8em;
+        }
+        @include for-tablet-portrait-only {
+            top: 70%;
         }
         @include for-desktop-up {
             right: 20em;

@@ -146,7 +146,6 @@
         position: absolute;
         top: 0;
         bottom: $nav-bar-width;
-        // height: 100%;
         z-index: $z_high;
         display: flex;
         justify-content: center;
@@ -198,6 +197,12 @@
                 width: .15em;
                 height: 2em;
                 margin-bottom: 2.6em;
+            }
+        }
+        h2 {
+            @include for-tablet-portrait-up {
+                width: $nav-bar-width;
+                line-height: $nav-bar-width;
             }
         }
     }
@@ -394,5 +399,5 @@
 
 .help .section__info .info__background::after { 
     background-image: url('../images/help.svg');
-    // opacity: .2;
+    opacity: .2;
 }

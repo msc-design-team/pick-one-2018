@@ -1483,6 +1483,13 @@ button:focus {
   }
 }
 
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero-img-wrapper {
+    top: 15%;
+    right: -1em;
+  }
+}
+
 @media (min-width: 1200px) {
   .hero-img-wrapper {
     height: auto;
@@ -1494,12 +1501,18 @@ button:focus {
   height: 100%;
 }
 
+@media (min-width: 1200px) {
+  .hero-img-wrapper .hero-img {
+    height: 80vh;
+  }
+}
+
 .hero-img-wrapper .pick-one-hero {
   position: absolute;
   outline: 1px solid transparent;
   transform: rotate(-15deg) translateZ(8em);
   height: 20em;
-  top: 100%;
+  top: 70%;
   left: 1em;
 }
 
@@ -1509,6 +1522,12 @@ button:focus {
     top: 3em;
     height: 13em;
     left: -8em;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero-img-wrapper .pick-one-hero {
+    top: 70%;
   }
 }
 
@@ -1834,6 +1853,13 @@ button:focus {
   }
 }
 
+@media (min-width: 600px) {
+  .section__title h2 {
+    width: 4.5rem;
+    line-height: 4.5rem;
+  }
+}
+
 @media (max-width: 599px) {
   .section__info {
     padding-top: 4.5rem;
@@ -2071,4 +2097,5 @@ button:focus {
 
 .help .section__info .info__background::after {
   background-image: url("../images/help.svg");
+  opacity: .2;
 }
